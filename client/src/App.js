@@ -1,33 +1,23 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { ThemeProvider as MuiThemeProvider, CssBaseline } from '@mui/material';
-import { ThemeProvider, useTheme } from './context/ThemeContext';
-import Register from './components/Register';
-import Login from './components/Login';
-import AuthSuccess from './components/AuthSuccess';
-
-const AppContent = () => {
-  const { theme } = useTheme();
-  
-  return (
-    <MuiThemeProvider theme={theme}>
-      <CssBaseline />
-      <Router>
-        <Routes>
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/auth/success" element={<AuthSuccess />} />
-          <Route path="/" element={<Login />} />
-        </Routes>
-      </Router>
-    </MuiThemeProvider>
-  );
-};
+// src/App.js
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ThemeProvider } from "./context/ThemeContext";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+import Landing from "./pages/landing";
+import ForgotPassword from "./pages/forgot";
 
 function App() {
   return (
     <ThemeProvider>
-      <AppContent />
+      <Router>
+        <Routes>
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Landing />} />
+          <Route path="/forgot-password-page" element={<ForgotPassword />} />
+        </Routes>
+      </Router>
     </ThemeProvider>
   );
 }

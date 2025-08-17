@@ -32,6 +32,13 @@ const UserSchema = new mongoose.Schema({
   otpExpires: {
     type: Date
   },
+  // ✅ Add these fields for forgot password
+  resetPasswordOtp: {
+    type: String
+  },
+  resetPasswordExpires: {
+    type: Date
+  },
   googleId: {
     type: String,
     sparse: true
@@ -64,4 +71,4 @@ UserSchema.methods.comparePassword = async function(candidatePassword) {
   return await bcrypt.compare(candidatePassword, this.password);
 };
 
-module.exports = mongoose.model('User', UserSchema); 
+module.exports = mongoose.model('User', UserSchema);
