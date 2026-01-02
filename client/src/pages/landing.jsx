@@ -25,6 +25,7 @@ export default function Landing() {
       {/* Centered content */}
       <div className="flex-grow flex flex-col items-center justify-center">
         <h1 className="text-4xl font-bold mb-6">Welcome to the ready made authentication</h1>
+        <h3 className="text-lg mb-8">A MERN stack authentication system with JWT and password reset functionality.</h3>
         <div className="flex gap-4">
           <a
             href="/login"
