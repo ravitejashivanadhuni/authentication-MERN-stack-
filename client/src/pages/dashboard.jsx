@@ -1,6 +1,7 @@
 import react from 'react';
 import { useTheme } from '../context/ThemeContext';
 
+
 export default function Dashboard() {
   const { isDarkMode, toggleTheme } = useTheme();
     return (
@@ -22,7 +23,16 @@ export default function Dashboard() {
                 </svg>
                 )}
             </button>
-            </div> 
+            <button
+                onClick={() => {
+                    // Clear any authentication tokens or user data here
+                    window.location.href = '/login'; // Redirect to login page
+                }}
+                className="ml-4 p-2 rounded-full bg-red-500 hover:bg-red-600 text-white transition"
+            >
+                Logout
+            </button>
+            </div>
             {/* Centered content */}
             <div className="flex-grow flex flex-col items-center justify-center">
             <h1 className="text-4xl font-bold mb-6">Welcome to the Dashboard</h1>
