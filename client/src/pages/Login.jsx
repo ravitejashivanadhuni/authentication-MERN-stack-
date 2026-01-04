@@ -30,13 +30,13 @@ export default function Login() {
     }
   };
 
-  const handleGoogleLogin = () => {
-    window.location.href = "http://localhost:5000/api/auth/google";
-  };
+  // const handleGoogleLogin = () => {
+  //   window.location.href = "http://localhost:5000/api/auth/google";
+  // };
 
-  const handleGithubLogin = () => {
-    window.location.href = "http://localhost:5000/api/auth/github";
-  };
+  // const handleGithubLogin = () => {
+  //   window.location.href = "http://localhost:5000/api/auth/github";
+  // };
 
   return (
     <div className={isDarkMode ? "dark" : ""}>
@@ -110,31 +110,31 @@ export default function Login() {
             </div>
 
             {/* Divider */}
-            <div className="flex items-center my-4">
+            {/* <div className="flex items-center my-4">
               <hr className="flex-1 border-gray-300 dark:border-gray-600" />
               <span className="px-3 text-gray-500 text-sm">OR</span>
               <hr className="flex-1 border-gray-300 dark:border-gray-600" />
-            </div>
+            </div> */}
 
             {/* Google login */}
-            <button
+            {/* <button
               type="button"
               onClick={handleGoogleLogin}
               className="w-full flex items-center justify-center gap-2 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition"
             >
               <Mail className="w-5 h-5" />
               Sign in with Google
-            </button>
+            </button> */}
 
             {/* GitHub login */}
-            <button
+            {/* <button
               type="button"
               onClick={handleGithubLogin}
               className="w-full flex items-center justify-center gap-2 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition"
             >
               <Github className="w-5 h-5" />
               Sign in with GitHub
-            </button>
+            </button> */}
           </form>
         </div>
       </div>
