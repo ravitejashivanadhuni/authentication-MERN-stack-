@@ -212,13 +212,13 @@ const handleOtpSubmit = async () => {
 };
 
 
-  const handleGoogleLogin = () => {
-    window.location.href = 'http://localhost:5000/api/auth/google';
-  };
+  // const handleGoogleLogin = () => {
+  //   window.location.href = 'http://localhost:5000/api/auth/google';
+  // };
 
-  const handleGithubLogin = () => {
-    window.location.href = 'http://localhost:5000/api/auth/github';
-  };
+  // const handleGithubLogin = () => {
+  //   window.location.href = 'http://localhost:5000/api/auth/github';
+  // };
 
  return (
     <div className={`flex justify-center items-center min-h-screen ${isDarkMode ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-900"}`}>
@@ -349,30 +349,30 @@ const handleOtpSubmit = async () => {
             </p>
           </div>
 
-          <div className="flex items-center gap-2 my-2">
+          {/* <div className="flex items-center gap-2 my-2">
             <div className="flex-1 h-px bg-gray-300"></div>
             <span className="text-gray-500 text-sm">OR</span>
             <div className="flex-1 h-px bg-gray-300"></div>
-          </div>
+          </div> */}
 
           {/* Social Logins */}
-          <button
+          {/* <button
             type="button"
             onClick={handleGoogleLogin}
             className="w-full border border-gray-300 dark:border-gray-600 py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-gray-100 dark:hover:bg-gray-700"
           >
             <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" className="w-5 h-5" />
             Sign up with Google
-          </button>
+          </button> */}
 
-          <button
+          {/* <button
             type="button"
             onClick={handleGithubLogin}
             className="w-full border border-gray-300 dark:border-gray-600 py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-gray-100 dark:hover:bg-gray-700"
           >
             <img src="https://www.svgrepo.com/show/512317/github-142.svg" alt="GitHub" className="w-5 h-5" />
             Sign up with GitHub
-          </button>
+          </button> */}
         </form>
       </div>
 
