@@ -109,6 +109,13 @@ export default function Login() {
               </Link>
             </div>
 
+            {/* Register link */}
+            <div className="mt-2">
+              <Link to="/register" className="text-blue-600 hover:underline">
+                Don't have an account? register here!
+              </Link>
+            </div>
+
             {/* Divider */}
             {/* <div className="flex items-center my-4">
               <hr className="flex-1 border-gray-300 dark:border-gray-600" />

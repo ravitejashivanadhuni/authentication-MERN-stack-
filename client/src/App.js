@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import Landing from "./pages/landing";
 import ForgotPassword from "./pages/forgot";
 import Dashboard from "./pages/dashboard";
+import ProtectedRoute from "./protectedroutes";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<Landing />} />
           <Route path="/forgot-password-page" element={<ForgotPassword />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard" element={ <ProtectedRoute><Dashboard /></ProtectedRoute>} />
         </Routes>
       </Router>
     </ThemeProvider>
