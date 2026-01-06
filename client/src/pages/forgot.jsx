@@ -133,7 +133,7 @@ const ForgotPassword = () => {
       </button>
 
       <div className="w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
-        <h2 className="text-2xl font-bold text-center mb-4">Forgot Password</h2>
+        <h2 className="text-2xl font-bold text-center mb-4">Reset Password</h2>
 
         {!otpSent && (
           <>
