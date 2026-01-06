@@ -111,8 +111,9 @@ export default function Login() {
 
             {/* Register link */}
             <div className="mt-2">
+              Don't have an account? 
               <Link to="/register" className="text-blue-600 hover:underline">
-                Don't have an account? register here!
+                register here!
               </Link>
             </div>
 
