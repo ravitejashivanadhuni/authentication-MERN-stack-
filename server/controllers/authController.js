@@ -105,6 +105,14 @@ exports.verifyOtp = async (req, res) => {
     otpStore.delete(email);
 
     res.status(201).json({ success: true, message: 'User registered successfully' });
+    // Optionally, send welcome email here
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: newUser.email,
+      subject: 'Welcome to Our Service',
+      text: `Hello ${newUser.firstName},\n\nWelcome to our service! Your registration was successful. We're glad to have you on board.`,
+    };
+    await transporter.sendMail(mailOptions);
   } catch (error) {
     console.error('Verify OTP Error:', error.message);
     res.status(500).json({ success: false, message: 'Server error while verifying OTP' });
@@ -142,6 +150,14 @@ exports.login = async (req, res) => {
       { expiresIn: '1d' }
     );
     console.log('Generated JWT Token:', token);
+    //send user a mail that he has logged in
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: user.email,
+      subject: 'New Login Alert',
+      text: `Hello ${user.firstName},\n\nWe noticed a new login to your account. If this was you, you can safely ignore this email. If not, please reset your password immediately.`,
+    };
+    await transporter.sendMail(mailOptions);
     res.status(200).json({
       success: true,
       message: 'Login successful',
@@ -295,6 +311,15 @@ exports.resetPassword = async (req, res) => {
     await user.save();
 
     res.json({ success: true, message: 'Password reset successful' });
+    // Optionally, send confirmation email here
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: user.email,
+      subject: 'Password Reset Successful',
+      text: `Hello ${user.firstName},\n\nYour password has been successfully reset. If you did not perform this action, please contact support immediately.`,
+    };
+
+    await transporter.sendMail(mailOptions);
   } catch (error) {
     console.error('Reset Password Error:', error);
     res.status(500).json({ success: false, message: 'Server Error' });
