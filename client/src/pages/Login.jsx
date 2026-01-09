@@ -23,6 +23,8 @@ export default function Login() {
       const response = await axios.post("http://localhost:5000/api/auth/login", formData);
       if (response.data.success) {
         alert("Login successful!");
+        console.log(response.data.token);
+        localStorage.setItem("token", response.data.token);
         navigate("/dashboard");
       }
     } catch (err) {
