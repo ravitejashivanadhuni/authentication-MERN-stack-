@@ -150,12 +150,15 @@ exports.login = async (req, res) => {
       { expiresIn: '1d' }
     );
     console.log('Generated JWT Token:', token);
+    const time = new Date().toISOString();
+    const deviceInfo = req.headers['user-agent'] || 'Unknown device';
+    const location = req.ip || req.connection.remoteAddress || 'Unknown location';
     //send user a mail that he has logged in
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: user.email,
       subject: 'New Login Alert',
-      text: `Hello ${user.firstName},\n\nWe noticed a new login to your account. If this was you, you can safely ignore this email. If not, please reset your password immediately.`,
+      text: `Hello ${user.firstName},\n\nWe noticed a new login to your account on ${time} from ${deviceInfo}, IP: ${location}. If this was you, no further action is needed. If you did not log in, please reset your password immediately.`,
     };
     await transporter.sendMail(mailOptions);
     res.status(200).json({
